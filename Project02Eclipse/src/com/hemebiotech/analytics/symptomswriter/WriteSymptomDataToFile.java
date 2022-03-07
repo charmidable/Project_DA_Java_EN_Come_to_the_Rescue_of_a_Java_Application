@@ -54,4 +54,3 @@ public class WriteSymptomDataToFile implements ISymptomWriter
         }
     }
 }
-
