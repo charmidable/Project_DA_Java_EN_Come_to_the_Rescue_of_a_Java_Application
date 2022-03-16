@@ -1,7 +1,7 @@
 package com.hemebiotech.analytics.symptomanalyserhandler;
 
-import com.hemebiotech.analytics.ISymptomReader;
-import com.hemebiotech.analytics.ReadSymptomDataFromFile;
+import com.hemebiotech.analytics.symptomreader.ISymptomReader;
+import com.hemebiotech.analytics.symptomreader.ReadSymptomDataFromFile;
 import com.hemebiotech.analytics.symptomswriter.ISymptomWriter;
 import com.hemebiotech.analytics.symptomswriter.WriteSymptomDataToFile;
 
@@ -23,14 +23,14 @@ public final class FileTextToFileTextSymptomsAnalyser extends AbstractSymptomAna
 
 
     @Override
-    protected final List<String> getSymptoms() throws IOException
+    protected  List<String> getSymptoms() throws Exception
     {
-        return ((ReadSymptomDataFromFile)reader).getSymptoms();
+        return reader.getSymptoms();
     }
 
     @Override
-    protected final void saveSymptoms(final Map<String, Long> map) throws IOException
+    protected  void saveSymptoms(final Map<String, Long> map) throws Exception
     {
-        ((WriteSymptomDataToFile)writer).writeSymptomAnalyse(map);
+        writer.writeSymptomAnalyse(map);
     }
 }
